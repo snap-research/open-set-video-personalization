@@ -14,21 +14,21 @@
 <body data-new-gr-c-s-check-loaded="14.1110.0" data-gr-ext-installed="">
 	<div id="Video Alchemist" class="jumbotron text-center pb-2container" style="background-image: url('./data/background_smoke.jpg'); background-size: cover; background-position: 0% 5%;">
 		<br><br><br>
-		<p style="font-size: min(6rem, 10vw); margin-bottom: -10px; text-shadow: 0px 0px 10px #000;">⚗️ Video Alchemist</p>
+		<p style="font-size: min(6rem, 10vw); font-weight: 480; margin-bottom: -10px; text-shadow: 0px 0px 10px #000;">⚗️ Video Alchemist</p>
 		<p class="responsive-text-title" style="font-size: 2rem; text-shadow: 0px 0px 10px #000;">Multi-subject Open-set Personalization in Video Generation</p>
 		<br>
-		<a href="https://tsaishien-chen.github.io/" class="responsive-text-context" style="color: white !important;"><b>Tsai-Shien Chen</b></a>,
-		<a href="https://aliaksandrsiarohin.github.io/aliaksandr-siarohin-website/" class="responsive-text-context" style="color: white !important;"><b>Aliaksandr Siarohin</b></a>,
-		<a href="https://www.willimenapace.com/" class="responsive-text-context" style="color: white !important;"><b>Willi Menapace</b></a>,
-		<a href="https://yuwfan.github.io/" class="responsive-text-context" style="color: white !important;"><b>Yuwei Fang</b></a>,
-		<a href="https://www.linkedin.com/in/kwotsin/" class="responsive-text-context" style="color: white !important;"><b>Kwot Sin Lee</b></a>,
-		<a href="https://skor.sh/" class="responsive-text-context" style="color: white !important;"><b>Ivan Skorokhodov</b></a>,
+		<a href="https://tsaishien-chen.github.io/" class="responsive-text-author" style="color: white !important;"><b>Tsai-Shien Chen</b></a>,
+		<a href="https://aliaksandrsiarohin.github.io/aliaksandr-siarohin-website/" class="responsive-text-author" style="color: white !important;"><b>Aliaksandr Siarohin</b></a>,
+		<a href="https://www.willimenapace.com/" class="responsive-text-author" style="color: white !important;"><b>Willi Menapace</b></a>,
+		<a href="https://yuwfan.github.io/" class="responsive-text-author" style="color: white !important;"><b>Yuwei Fang</b></a>,
+		<a href="https://www.linkedin.com/in/kwotsin/" class="responsive-text-author" style="color: white !important;"><b>Kwot Sin Lee</b></a>,
+		<a href="https://skor.sh/" class="responsive-text-author" style="color: white !important;"><b>Ivan Skorokhodov</b></a>,
 		<br>
-		<a href="https://kfiraberman.github.io/" class="responsive-text-context" style="color: white !important;"><b>Kfir Aberman</b></a>,
-		<a href="https://www.cs.cmu.edu/~junyanz/" class="responsive-text-context" style="color: white !important;"><b>Jun-Yan Zhu</b></a>,
-		<a href="https://faculty.ucmerced.edu/mhyang/" class="responsive-text-context" style="color: white !important;"><b>Ming-Hsuan Yang</b></a>,
-		<a href="http://www.stulyakov.com/" class="responsive-text-context" style="color: white !important;"><b>Sergey Tulyakov</b></a>
-		<br><br>
+		<a href="https://kfiraberman.github.io/" class="responsive-text-author" style="color: white !important;"><b>Kfir Aberman</b></a>,
+		<a href="https://www.cs.cmu.edu/~junyanz/" class="responsive-text-author" style="color: white !important;"><b>Jun-Yan Zhu</b></a>,
+		<a href="https://faculty.ucmerced.edu/mhyang/" class="responsive-text-author" style="color: white !important;"><b>Ming-Hsuan Yang</b></a>,
+		<a href="http://www.stulyakov.com/" class="responsive-text-author" style="color: white !important;"><b>Sergey Tulyakov</b></a>
+		<p class="responsive-text-author" style="margin-top:30px; margin-bottom:30px; font-style: italic;">CVPR 2025</p>
 		<a href="https://research.snap.com/team/creative-vision"><img class="paper-btn" src="./data/logo_snap.svg" style="height: 80px; width: auto; background-color: #000;"></a>
 		<a href="https://www.ucmerced.edu/"><img class="paper-btn" src="./data/logo_ucmerced.svg" style="height: 80px; width: auto; background-color: #000;"></a>
 		<a href="https://www.cmu.edu/"><img class="paper-btn" src="./data/logo_cmu.svg" style="height: 80px; width: auto; background-color: #000;"></a>
@@ -538,6 +538,7 @@
 
 			if (className == "responsive-text-title") {
 				for (var i = 0; i < elements.length; i++) {
+					elements[i].style.fontWeight = "450";
 					if (screenWidth < 600) {
 						elements[i].style.fontSize = "1.55rem";
 					} else if (screenWidth < 800) {
@@ -549,9 +550,23 @@
 					}
 				}
 			}
+			else if (className == "responsive-text-author") {
+				for (var i = 0; i < elements.length; i++) {
+					elements[i].style.fontWeight = "330";
+					if (screenWidth < 600) {
+						elements[i].style.fontSize = "14px";
+					} else if (screenWidth < 800) {
+						elements[i].style.fontSize = "15.5px";
+					} else if (screenWidth < 1000) {
+						elements[i].style.fontSize = "17px";
+					} else {
+						elements[i].style.fontSize = "18.5px";
+					}
+				}
+			}
 			else if (className == "responsive-text-context") {
 				for (var i = 0; i < elements.length; i++) {
-					elements[i].style.fontWeight = "300";
+					elements[i].style.fontWeight = "250";
 					if (screenWidth < 600) {
 						elements[i].style.fontSize = "13.5px";
 					} else if (screenWidth < 800) {
@@ -597,12 +612,14 @@
 		// Call the function on page load and window resize
 		window.onload = function() {
 			updateFontSizeForClass("responsive-text-title");
+			updateFontSizeForClass("responsive-text-author");
 			updateFontSizeForClass("responsive-text-context");
 			updateFontSizeForClass("responsive-text-prompt");
 			updateFontSizeForClass("responsive-text-footnote");
 		};
 		window.onresize = function() {
 			updateFontSizeForClass("responsive-text-title");
+			updateFontSizeForClass("responsive-text-author");
 			updateFontSizeForClass("responsive-text-context");
 			updateFontSizeForClass("responsive-text-prompt");
 			updateFontSizeForClass("responsive-text-footnote");
